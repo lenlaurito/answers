@@ -8,7 +8,7 @@ public class MultiplicationTable {
     public void printMultiplicationTable(int size) {
         for(int i = 1; i <= size; i++) {
             for(int j = 1; j <= size; j++) {
-                System.out.print(i*j + "\t");
+                System.out.printf("%4d", i*j);
             }
 
             //Print new line
