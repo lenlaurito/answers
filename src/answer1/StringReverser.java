@@ -6,14 +6,16 @@ package answer1;
 public class StringReverser {
 
     public String reverse(String s) {
-        StringBuffer reversedString = new StringBuffer();
-        int length = s.length();
+        char[] charArray =  s.toCharArray();
+        int length = charArray.length;
 
-        for(int i = 0; i < length; i++) {
-            reversedString = reversedString.append(s.charAt(length - i - 1));
+        for(int i = 0; i < length/2; i++) {
+            char temp = charArray[i];
+            charArray[i] = (charArray[length - i - 1]);
+            charArray[length - i - 1] = temp;
         }
 
-        return reversedString.toString();
+        return new String(charArray);
     }
 
     public static void main(String[] args) {
@@ -22,7 +24,5 @@ public class StringReverser {
 
         System.out.println("String: " + str);
         System.out.println("Reverse String: " + reverser.reverse(str));
-
-
     }
 }
