@@ -6,7 +6,7 @@ package answer4;
 public class DiceProbability {
 
     public double getProbability(int i) {
-        if(i > 12 || i < 0) {
+        if(i > 12 || i <= 0) {
             return 0;
         }
 
