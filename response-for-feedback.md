@@ -58,4 +58,19 @@ public double getProbability(int i) {
 ```
 Sorry, I missed 0 in the input check. I've added it to the condition as seen above :)
 
+## Answer 5 - Skype clone
+>What kind of index would we need to add here? Would you be able to give an example SQL snippet using either Postgres or Oracle?
+
+I'm not really an expert on indexing so I did a bit of research on this and I think a full-text index could be used in this case since we're searching for certain keywords on texts. I found out that on psql, we could create a full-text index using: create index fs_idx on message using gin(to_tsvector('english', message));
+
+(Regarding optimization of database storage)
+>Would you be able to explain this in a bit more detail?
+
+I was thinking that messages would only be saved into the database every x seconds if it comes from the same user. When a user sends a message and within x seconds, the user sends a couple more messages without the other user sending any message, then those messages will only be stored as one record.
+
+>Are there any other indexes we'd want to add to this schema, or does that just about cover it?
+
+I think we could also add indices for the user field on the user conversation table and the conversation and dateTimeSent fields on the message table.
+
+
 
